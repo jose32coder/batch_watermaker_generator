@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  --background: #09090b; /* zinc-950 */
+  --foreground: #f4f4f5; /* zinc-100 */
+  
+  /* Brand colors */
+  --color-sky-500: #0ea5e9;
+  --color-sky-600: #0284c7;
+  --color-zinc-900: #18181b;
+  --color-zinc-950: #09090b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+  letter-spacing: -0.01em;
+}
+
+/* Custom styles for range input to make it feel premium */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #27272a; /* zinc-800 */
+  height: 6px;
+  border-radius: 9999px;
+}
+
+input[type="range"]::-moz-range-track {
+  background: #27272a; /* zinc-800 */
+  height: 6px;
+  border-radius: 9999px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -5px; /* Centers the thumb on the track in Chrome */
+  background-color: #0ea5e9; /* sky-500 */
+  height: 16px;
+  width: 16px;
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(14, 165, 233, 0.4);
+  transition: all 0.15s ease-in-out;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background-color: #38bdf8; /* sky-400 */
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(14, 165, 233, 0.6);
+}
+
+input[type="range"]::-moz-range-thumb {
+  border: none; /* Removes extra border in Firefox */
+  background-color: #0ea5e9; /* sky-500 */
+  height: 16px;
+  width: 16px;
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(14, 165, 233, 0.4);
+  transition: all 0.15s ease-in-out;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  background-color: #38bdf8; /* sky-400 */
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(14, 165, 233, 0.6);
+}
+
+/* Custom Scrollbar for modern look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b; /* zinc-950 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a; /* zinc-800 */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46; /* zinc-700 */
+}
