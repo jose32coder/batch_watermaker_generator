@@ -160,9 +160,6 @@ export default function Home() {
             <span className="text-base font-bold tracking-tight select-none">
               WATERMARK STUDIO
             </span>
-            <span className="text-[10px] font-mono text-zinc-500 border border-zinc-800 rounded-md px-1.5 py-0.5 select-none">
-              v2
-            </span>
           </div>
 
           {images.length > 0 && (
@@ -212,14 +209,16 @@ export default function Home() {
                   </button>
 
                   {/* Prev / Next nav */}
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-1.5 bg-zinc-950/60 p-1 rounded-xl border border-zinc-800/80 backdrop-blur-sm">
+                    {/* Botón Anterior */}
                     <button
                       type="button"
                       onClick={() =>
                         setCurrentImageIndex((i) => Math.max(0, i - 1))
                       }
                       disabled={currentImageIndex === 0}
-                      className="w-8 h-8 rounded-lg border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 hover:bg-zinc-900 disabled:opacity-30 disabled:cursor-default transition-all duration-200 flex items-center justify-center"
+                      aria-label="Imagen anterior"
+                      className="w-8 h-8 rounded-lg border border-zinc-800/80 text-zinc-400 hover:text-white hover:border-zinc-700 hover:bg-zinc-900 active:scale-95 disabled:opacity-20 disabled:pointer-events-none transition-all duration-150 flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
                     >
                       <svg
                         className="w-4 h-4"
@@ -230,14 +229,19 @@ export default function Home() {
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          strokeWidth={2}
+                          strokeWidth={1.75}
                           d="M15 19l-7-7 7-7"
                         />
                       </svg>
                     </button>
-                    <span className="text-[11px] font-mono text-zinc-500 px-2 select-none w-14 text-center">
-                      {currentImageIndex + 1} / {images.length}
+
+                    {/* Contador de Imágenes (Sin saltos de línea) */}
+                    <span className="text-[11px] font-mono text-zinc-300 select-none min-w-14 text-center whitespace-nowrap px-1">
+                      {currentImageIndex + 1}{" "}
+                      <span className="text-zinc-600">/</span> {images.length}
                     </span>
+
+                    {/* Botón Siguiente */}
                     <button
                       type="button"
                       onClick={() =>
@@ -246,7 +250,8 @@ export default function Home() {
                         )
                       }
                       disabled={currentImageIndex === images.length - 1}
-                      className="w-8 h-8 rounded-lg border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 hover:bg-zinc-900 disabled:opacity-30 disabled:cursor-default transition-all duration-200 flex items-center justify-center"
+                      aria-label="Siguiente imagen"
+                      className="w-8 h-8 rounded-lg border border-zinc-800/80 text-zinc-400 hover:text-white hover:border-zinc-700 hover:bg-zinc-900 active:scale-95 disabled:opacity-20 disabled:pointer-events-none transition-all duration-150 flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
                     >
                       <svg
                         className="w-4 h-4"
@@ -257,7 +262,7 @@ export default function Home() {
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          strokeWidth={2}
+                          strokeWidth={1.75}
                           d="M9 5l7 7-7 7"
                         />
                       </svg>
